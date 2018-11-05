@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>form</title>
+	<script type="text/javascript">
+	function validate(){
+	//	alert("hello");
+		cname=document.frm_register.txt_cname.value;
+		if(cname==""){
+			//alert("Please enter customer name");
+			document.getElementById("lbl_cname").innerHTML
+				="Please enter customer name";
+			document.frm_register.txt_cname.style.borderColor="red";
+			
+		}
+		else{
+			document.getElementById("lbl_cname").innerHTML
+				="";
+			document.frm_register.txt_cname.style.borderColor="initial";
+		}
+		male=document.frm_register.gender[0].checked;
+		female=document.frm_register.gender[1].checked;
+		if(!(male||female)){
+			document.getElementById("lbl_gender").innerHTML
+			=frm_register="Please select gender";
+		}
+		tel=document.frm_register.txt_telephone.value;
+		if(tel==""){
+			document.getElementById("lbl_telephone").innerHTML
+				="Please enter telephone no.";
+		}
+		else if(isNaN(tel)){
+			document.getElementById("lbl_telephone").innerHTML
+				="Please enter a valid telephone no.";
+		}
+
+
+	}
+	</script>
+</head>
+<body>
+	<form name="frm_register" >
+<table align="center">
+	<tr><th colspan="2">Customer Registration</th></tr>
+<tr>
+	<td>Customer name:</td>
+	<td><input type="text" name="txt_cname"></td>
+	<td><label id="lbl_cname" style="color:red"></label></td>
+</tr>
+<tr>
+	<td>Password:</td>
+	<td><input type="password"></td>
+</tr>
+<tr>
+	<td>Gender</td>
+	<td><input type="radio" name="gender" value="male">Male 
+		<input type="radio" name="gender" value="female">Female</td>
+		<td><label id="lbl_gender"></label></td>
+</tr>
+<tr>
+	<td>Address:</td>
+	<td><textarea rows="5" cols="25"></textarea></td>
+</tr>
+<tr>
+	<td>
+		Telephone: 
+	</td>
+	<td><input type="text" name="txt_telephone"></td>
+	<td><label id="lbl_telephone"></label></td>
+</tr>
+<tr>
+	<td>Hobbies</td>
+	<td><select>
+		<option>Reading</option>
+		<option>Writing</option>
+		<option>Swimming</option>
+	</select></td>
+</tr>
+<tr>
+	<td>
+		<input type="submit" value="submit" 
+		onclick="return validate()">
+	</td>
+</tr>
+</table>
+</form>
+</body>
+</html>
